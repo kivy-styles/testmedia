@@ -5,11 +5,15 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack-dev-server --hot"
+    "start": "webpack-dev-server --port $PORT --host 0.0.0.0"
   },
   "keywords": [
     "joseph"
   ],
+  "engines": {
+    "node": "16.14.2",
+    "npm": "8.5.0"
+  },
   "author": "Joseph",
   "license": "ISC",
   "dependencies": {

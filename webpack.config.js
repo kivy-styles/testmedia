@@ -2,11 +2,10 @@ const webpack= require('webpack');
 const path= require('path');
 
 module.exports = {
-    mode:'development',
+    mode:'production',
     entry:{
     app:'./src/App.jsx',
-
-},
+    },
 output:{
         path: path.resolve(__dirname, 'static'),
     publicPath: '/assets/',
@@ -47,19 +46,14 @@ output:{
         port:8000,
         static: path.resolve(__dirname, 'static'),
         historyApiFallback:true,
+        allowedHosts: "all",
     proxy:{
             '/api/*': {
                 target:'http://localhost:3000',
                 secure: false,
                 changeOrigin: true
             }
-    },
-    client:{
-            webSocketURL:{
-                hostname:'localhost',
-                port:8000
-            }
-        }
+    }
     },
     devtool:'source-map'
 

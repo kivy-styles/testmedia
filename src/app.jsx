@@ -16,8 +16,8 @@ function Movies(props){
     console.log(List)
     return(
         <div style={{padding:20}}>
-            <div className='center-poster' style={{height:430}}>
-                <img className='responsive' style={{width:'98%', height:430, maxWidth:'98%'}} src='./images/poster.jpg'/>
+            <div className='center-poster'>
+                <img className='responsive' src='./images/poster.jpg'/>
                 <div>
                     <div className='position-header'>
                 <div>Watch</div>
@@ -26,7 +26,7 @@ function Movies(props){
                     </div>
                 </div>
             </div>
-            <div className='input-group' style={{paddingTop:30,width:'98%'}}>
+            <div className='input-group input'>
                 <div className='input-group-addon'>
                     <button className='btn' onClick={()=>{
                         fetch(`http://www.omdbapi.com/?s=${Name}&apikey=f5745c03`).then((response)=>response.json()).then(data=>
@@ -34,12 +34,12 @@ function Movies(props){
                     }
                     }><span className='glyphicon glyphicon-search'></span>Search</button>
                 </div>
-                <input className='form-control' type='text' name='s' value={Name} onChange={(Event)=>setName(Event.target.value)}/>
+                <input className='form-control' type='text' name='Name' value={Name} onChange={(Event)=>setName(Event.target.value)}/>
             </div>
-            <div style={{paddingTop:30,width:'98%'}}>
+            <div className='content'>
                 <Card>
                     <Querymovies/>
-                    <div className='row' style={{padding:20}}>
+                    <div className='row arrange-row'>
                     {List && List.map((item)=><div className='col-md-3 cancel' key={item.imdbID}>
                         <iframe src={item.Poster}></iframe>
                         <div>{item.Title}</div>
@@ -58,7 +58,7 @@ function Movies(props){
 const RoutedApp=()=>(
 <div className='container-fluid'>
     <div>
-        <Navbar bg='dark' variant='light' expand="lg" style={{height:90}} defaultExpanded='collapseOnSelect'>
+        <Navbar bg='dark' variant='dark' expand="lg" style={{height:90}} defaultExpanded='collapseOnSelect'>
             <Navbar.Toggle style={{color:'white'}} aria-controls='mynavbar'/>
             <Navbar.Collapse id='mynavbar'>
                 <div style={{fontFamily:'Sofia', fontSize:18}}>
