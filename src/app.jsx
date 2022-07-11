@@ -29,7 +29,14 @@ function Movies(props){
             <div className='input-group input'>
                 <div className='input-group-addon'>
                     <button className='btn' onClick={()=>{
-                        fetch(`http://www.omdbapi.com/?s=${Name}&apikey=f5745c03`).then((response)=>response.json()).then(data=>
+                        fetch(`http://www.omdbapi.com/?s=${Name}&apikey=f5745c03`,{
+                            method:'GET'
+                            headers: {
+                            "Access-Control-Allow-Headers": "*",
+                                "Access-Control-Allow-Methods": 'OPTIONS,POST,GET',
+                                "Content-Type": "application/json"
+                        }
+                        }).then((response)=>response.json()).then(data=>
                             setList(data.Search))
                     }
                     }><span className='glyphicon glyphicon-search'></span>Search</button>
