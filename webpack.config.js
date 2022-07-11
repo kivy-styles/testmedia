@@ -4,7 +4,7 @@ const path= require('path');
 module.exports = {
     mode:'production',
     entry:{
-    app:'./src/App.jsx',
+    app:'./src/app.jsx',
     },
 output:{
         path: path.resolve(__dirname, 'static'),
